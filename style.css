@@ -1,0 +1,294 @@
+@charset "utf-8";
+
+/* -----------------------------
+ reset 
+----------------------------- */
+
+
+body,
+h1,
+p,
+ul,
+li,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  text-align: center;
+  background-color: #eee;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+/* -----------------------------
+PC-layout 
+----------------------------- */
+
+/* header */
+header {
+  position: relative;
+  padding-inline: 40px;
+  background-image: url(images/mv-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+}
+
+header h1 {
+  position: absolute;
+  text-align: center;
+  top: 45%;
+  left: 0;
+  right: 0;
+}
+
+header p {
+  position: fixed;
+  top: 5%;
+  right: 5%;
+  text-align: right;
+  cursor: pointer;
+  z-index: 10;
+  width: 40px;
+  height: 31px;
+}
+
+header p span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transition: .5s;
+}
+
+header p span:first-child {
+  top: 0;
+}
+
+header p span:nth-of-type(2) {
+  top: 50%;
+}
+
+header p span:last-of-type {
+  top: 100%;
+}
+
+header p.active span:first-child {
+  top: 50%;
+  transform: rotate(45deg);
+}
+
+header p.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+header p.active span:last-of-type {
+  top: 50%;
+  transform: rotate(-45deg);
+}
+
+header nav {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  padding-block-start: 10%;
+  z-index: 1;
+  transition: all 0.5s;
+}
+
+header nav li {
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+}
+
+header nav li a {
+  color: #eee;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  right: 0;
+}
+
+/* main */
+
+main h2 {
+  padding-block: 50px;
+}
+
+main p {
+  line-height: 2.5rem;
+}
+
+.wrapper {
+  max-width: 930px;
+  margin-inline: auto;
+  padding-block: 50px;
+  padding-inline: 30px;
+}
+
+/* host */
+#host {
+  background-color: #583822;
+  color: #eee;
+}
+
+#host img {
+  border: #eee solid 6px;
+}
+
+.host-content {
+  display: flex;
+}
+
+/* message */
+#message .wrapper {
+  padding-block-end: 100px;
+}
+
+#gallery-area {
+  padding-block-start: 100px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#gallery-area li {
+  /* border: #bbb solid 2px; */
+  margin: 3px;
+}
+
+#gallery-area img {
+  width: 100%;
+}
+
+
+.slick-dots li button::before {
+  border: none;
+  font-size: 40px;
+  top: 10px;
+}
+
+/* presence-or-absence */
+
+#presence-or-absence {
+  background-image: url(images/presence-or-absence.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  object-fit: cover;
+  object-position: 0 2000px;
+  color: #eee;
+}
+
+#presence-or-absence dl {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  font-size: 1.3em;
+}
+
+#presence-or-absence dt {
+  width: 40%;
+  margin-block-end: 15px;
+  padding-block: 15px;
+  border-bottom: #eee solid 1px;
+}
+
+#presence-or-absence dd {
+  text-align: left;
+  width: 60%;
+  margin-block-end: 15px;
+  padding-block: 15px;
+  border-bottom: #eee solid 1px;
+  /* height: 30px; */
+}
+
+#presence-or-absence dd input {
+  width: 60%;
+  height: 30px;
+}
+
+#presence-or-absence dd textarea {
+  width: 60%;
+}
+
+#presence-or-absence button {
+  margin-block: 30px;
+  padding-block: 30px;
+  padding-inline: 60px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+
+/* -----------------------------
+Mobile-layout 
+----------------------------- */
+
+@media screen and (max-width:800px) {
+
+  /* header */
+  header nav {
+    padding-block-start: 20%;
+  }
+
+  /* main */
+
+  /* host */
+  .host-content {
+    display: block;
+  }
+
+  .host-item:nth-child(2) {
+    margin-block-start: 80px;
+  }
+
+  /* presence-or-absence */
+  #presence-or-absence dl {
+    display: block;
+  }
+
+  #presence-or-absence dt {
+    width: 100%;
+  }
+
+  #presence-or-absence dd {
+    width: 100%;
+    padding-block-end: 30px;
+  }
+
+  #presence-or-absence dd input {
+    width: 100%;
+  }
+
+  #presence-or-absence dd textarea {
+    width: 100%;
+  }
+}
