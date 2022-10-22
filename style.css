@@ -1,9 +1,14 @@
 @charset "utf-8";
 
+/* root */
+:root {
+  --base-color: #eee;
+  --accent-color: #aedbd3;
+}
+
 /* -----------------------------
  reset 
 ----------------------------- */
-
 
 body,
 h1,
@@ -19,7 +24,8 @@ dd {
 
 body {
   text-align: center;
-  background-color: #eee;
+  background-color: var(--base-color);
+  color: #555;
 }
 
 li {
@@ -36,9 +42,14 @@ img {
   vertical-align: bottom;
 }
 
+
 /* -----------------------------
 PC-layout 
 ----------------------------- */
+html {
+  scroll-behavior: smooth;
+
+}
 
 /* header */
 header {
@@ -54,9 +65,14 @@ header {
 header h1 {
   position: absolute;
   text-align: center;
-  top: 45%;
+  top: 52%;
   left: 0;
   right: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 7rem;
+  color: var(--base-color);
+  text-shadow: 2px 2px 5px var(--accent-color);
+  /* font-family: 'Monsieur La Doulaise', cursive; */
 }
 
 header p {
@@ -65,7 +81,7 @@ header p {
   right: 5%;
   text-align: right;
   cursor: pointer;
-  z-index: 10;
+  z-index: 100;
   width: 40px;
   height: 31px;
 }
@@ -113,8 +129,8 @@ header nav {
   width: 100%;
   height: 100vh;
   padding-block-start: 10%;
-  z-index: 1;
-  transition: all 0.5s;
+  z-index: 10;
+  transition: all .3s;
 }
 
 header nav li {
@@ -125,20 +141,18 @@ header nav li {
 }
 
 header nav li a {
-  color: #eee;
+  color: var(--base-color);
   display: inline-block;
   width: 100%;
   height: 100%;
 }
 
-.hidden {
-  right: 0;
-}
-
 /* main */
 
 main h2 {
-  padding-block: 50px;
+  font-family: 'Playfair Display', serif;
+  padding-block: 25px 50px;
+  font-size: 2.5em;
 }
 
 main p {
@@ -146,29 +160,64 @@ main p {
 }
 
 .wrapper {
-  max-width: 930px;
+  max-width: 1000px;
   margin-inline: auto;
-  padding-block: 50px;
+  padding-block: 10px 90px;
   padding-inline: 30px;
 }
 
 /* host */
-#host {
-  background-color: #583822;
-  color: #eee;
-}
-
 #host img {
-  border: #eee solid 6px;
+  border: var(--base-color) solid 6px;
 }
 
-.host-content {
+/* infomation */
+#infomation dt,
+#infomation dd {
+  font-size: 1.8em;
+}
+
+#infomation .access-img {
   display: flex;
+  flex-wrap: wrap;
+  padding-block-start: 50px;
+}
+
+#infomation .access-img:last-child {
+  padding-block-end: 50px;
+}
+
+#infomation .access-img img {
+  width: 50%;
+  margin-block: 10px;
+  margin-inline: 10px 15px;
+}
+
+#infomation .access-img p {
+  width: 40%;
+  text-align: left;
 }
 
 /* message */
-#message .wrapper {
+#message {
+  background-color: var(--accent-color);
+}
+
+/* #message .wrapper {
   padding-block-end: 100px;
+} */
+
+.message-comtent {
+  display: flex;
+  padding-block-start: 100px;
+}
+
+.message-item {
+  padding-inline: 20px;
+}
+
+.message-item img {
+  border: var(--base-color) solid 6px;
 }
 
 #gallery-area {
@@ -176,17 +225,19 @@ main p {
   width: 100%;
   height: 100%;
   position: relative;
+  margin-inline: auto;
 }
 
 #gallery-area li {
-  /* border: #bbb solid 2px; */
-  margin: 3px;
+  margin-inline: 5px;
 }
 
 #gallery-area img {
-  width: 100%;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border: var(--base-color) solid 2px;
 }
-
 
 .slick-dots li button::before {
   border: none;
@@ -201,9 +252,12 @@ main p {
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
-  object-fit: cover;
-  object-position: 0 2000px;
-  color: #eee;
+  color: var(--base-color);
+  opacity: 0.8;
+}
+
+#presence-or-absence {
+  color: var(--accent-color);
 }
 
 #presence-or-absence dl {
@@ -217,16 +271,7 @@ main p {
   width: 40%;
   margin-block-end: 15px;
   padding-block: 15px;
-  border-bottom: #eee solid 1px;
-}
-
-#presence-or-absence dd {
-  text-align: left;
-  width: 60%;
-  margin-block-end: 15px;
-  padding-block: 15px;
-  border-bottom: #eee solid 1px;
-  /* height: 30px; */
+  border-bottom: var(--base-color) solid 1px;
 }
 
 #presence-or-absence dd input {
@@ -234,19 +279,62 @@ main p {
   height: 30px;
 }
 
+#presence-or-absence .gender input {
+  width: 20%;
+}
+
 #presence-or-absence dd textarea {
   width: 60%;
 }
 
-#presence-or-absence button {
+input::placeholder {
+  padding-inline-start: 5px;
+
+}
+
+textarea::placeholder {
+  padding-block-start: 5px;
+  padding-inline-start: 5px;
+}
+
+#presence-or-absence dd {
+  text-align: left;
+  width: 60%;
+  margin-block-end: 15px;
+  padding-block: 15px;
+  border-bottom: var(--base-color) solid 1px;
+  /* height: 30px; */
+}
+
+#presence-or-absence .attendance {
+  width: 100%;
   margin-block: 30px;
-  padding-block: 30px;
-  padding-inline: 60px;
+  font-size: 1.3em;
+}
+
+#presence-or-absence .attendance input {
+  width: 20%;
+  height: 30px;
+}
+
+#presence-or-absence button {
+  font-size: 1.5rem;
+  margin-block: 30px;
+  padding-block: 40px;
+  padding-inline: 150px;
   border: none;
   border-radius: 20px;
   cursor: pointer;
 }
 
+/* footer */
+footer h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+footer p {
+  line-height: 2.5rem;
+}
 
 /* -----------------------------
 Mobile-layout 
@@ -255,19 +343,43 @@ Mobile-layout
 @media screen and (max-width:800px) {
 
   /* header */
+  header h1 {
+    font-size: 5.5rem;
+  }
+
   header nav {
     padding-block-start: 20%;
   }
 
   /* main */
 
-  /* host */
-  .host-content {
+  /* message */
+  .message-comtent {
     display: block;
   }
 
-  .host-item:nth-child(2) {
+  .message-item:nth-child(2) {
     margin-block-start: 80px;
+  }
+
+  #gallery-area img {
+    width: 100%;
+  }
+
+  /* infomation */
+  #infomation .access-img {
+    display: block;
+  }
+
+  #infomation .access-img img {
+    width: 100%;
+    margin-inline: 0;
+    padding-block-end: 20px;
+  }
+
+  #infomation .access-img p {
+    width: 100%;
+    text-align: center;
   }
 
   /* presence-or-absence */
@@ -288,7 +400,48 @@ Mobile-layout
     width: 100%;
   }
 
+  #presence-or-absence .gender input {
+    width: 30%;
+  }
+
+  #presence-or-absence .attendance input {
+    width: 20%;
+  }
+
   #presence-or-absence dd textarea {
     width: 100%;
   }
+
+  #presence-or-absence button {
+    font-size: 0.9rem;
+  }
+}
+
+/* JavaScript */
+.hidden {
+  right: 0;
+}
+
+.load-fade {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 5s;
+}
+
+.load-fade.is-show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-up {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(50px);
+  transition: all 2s;
+}
+
+.scroll-up.is-show {
+  opacity: 1;
+  visibility: visible;
+  transform: rotateY('0px');
 }
