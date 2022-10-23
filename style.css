@@ -54,10 +54,11 @@ html {
 /* header */
 header {
   position: relative;
-  padding-inline: 40px;
+  /* padding-inline: 40px; */
   background-image: url(images/mv-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: 76% 0;
   min-height: 100vh;
   display: flex;
 }
@@ -151,7 +152,7 @@ header nav li a {
 
 main h2 {
   font-family: 'Playfair Display', serif;
-  padding-block: 25px 50px;
+  padding-block: 15px 50px;
   font-size: 2.5em;
 }
 
