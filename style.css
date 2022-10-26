@@ -2,8 +2,10 @@
 
 /* root */
 :root {
+  --main-color: #555;
   --base-color: #eee;
   --accent-color: #aedbd3;
+  --required-color: #df8c97;
 }
 
 /* -----------------------------
@@ -25,7 +27,7 @@ dd {
 body {
   text-align: center;
   background-color: var(--base-color);
-  color: #555;
+  color: var(--main-color);
 }
 
 li {
@@ -34,7 +36,7 @@ li {
 
 a {
   text-decoration: none;
-  color: #000
+  color: var(--main-color)
 }
 
 img {
@@ -54,7 +56,6 @@ html {
 /* header */
 header {
   position: relative;
-  /* padding-inline: 40px; */
   background-image: url(images/mv-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -73,7 +74,6 @@ header h1 {
   font-size: 7rem;
   color: var(--base-color);
   text-shadow: 2px 2px 5px var(--accent-color);
-  /* font-family: 'Monsieur La Doulaise', cursive; */
 }
 
 header p {
@@ -204,10 +204,6 @@ main p {
   background-color: var(--accent-color);
 }
 
-/* #message .wrapper {
-  padding-block-end: 100px;
-} */
-
 .message-comtent {
   display: flex;
   padding-block-start: 100px;
@@ -261,6 +257,10 @@ main p {
   color: var(--accent-color);
 }
 
+#presence-or-absence form {
+  position: relative;
+}
+
 #presence-or-absence dl {
   display: flex;
   width: 100%;
@@ -273,6 +273,21 @@ main p {
   margin-block-end: 15px;
   padding-block: 15px;
   border-bottom: var(--base-color) solid 1px;
+  position: relative;
+}
+
+#presence-or-absence dt:nth-child(n+1):nth-child(-n+9)::after,
+#presence-or-absence dt:nth-child(15)::after {
+  content: '必須';
+  font-size: 0.6em;
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  background-color: var(--required-color);
+  color: var(--base-color);
+  position: absolute;
+  top: 25%;
+  right: 10%;
 }
 
 #presence-or-absence dd input {
@@ -280,7 +295,7 @@ main p {
   height: 30px;
 }
 
-#presence-or-absence .gender input {
+#presence-or-absence .radio-item input {
   width: 20%;
 }
 
@@ -304,7 +319,6 @@ textarea::placeholder {
   margin-block-end: 15px;
   padding-block: 15px;
   border-bottom: var(--base-color) solid 1px;
-  /* height: 30px; */
 }
 
 #presence-or-absence .attendance {
@@ -345,7 +359,7 @@ Mobile-layout
 
   /* header */
   header h1 {
-    font-size: 5.5rem;
+    font-size: 5rem;
   }
 
   header nav {
@@ -384,12 +398,21 @@ Mobile-layout
   }
 
   /* presence-or-absence */
+  #presence-or-absence form{
+    font-size: 0.8em;
+  }
+
   #presence-or-absence dl {
     display: block;
   }
 
   #presence-or-absence dt {
     width: 100%;
+    text-align: left;
+  }
+
+  #presence-or-absence dt::after {
+    text-align: center;
   }
 
   #presence-or-absence dd {
@@ -401,12 +424,8 @@ Mobile-layout
     width: 100%;
   }
 
-  #presence-or-absence .gender input {
+  #presence-or-absence .radio-item input {
     width: 30%;
-  }
-
-  #presence-or-absence .attendance input {
-    width: 20%;
   }
 
   #presence-or-absence dd textarea {
@@ -415,6 +434,10 @@ Mobile-layout
 
   #presence-or-absence button {
     font-size: 0.9rem;
+    margin-block: 30px;
+    padding-block: 20px;
+    padding-inline: 100px;
+  
   }
 }
 
